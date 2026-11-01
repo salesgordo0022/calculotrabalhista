@@ -7,7 +7,19 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 const navItems = $$('.nav-item');
 const pageTitle = $('#pageTitle');
 const pageHeading = $('#pageHeading');
+const pageMeta = $('#pageMeta');
+const pageTime = $('#pageTime');
 const viewContainer = $('#viewContainer');
+
+const metaByView = {
+  dashboard: { time: '3:12 PM', floor: '5 on the floor', track: '4 on track · 1 behind' },
+  sales: { time: '3:12 PM', floor: '4 open quotes', track: '' },
+  manufacturing: { time: '3:13 PM', floor: '1 work orders behind plan', track: '' },
+  stock: { time: '3:13 PM', floor: '6 items low on stock', track: '' },
+  accounting: { time: '3:13 PM', floor: '1 invoices overdue', track: '' },
+  hr: { time: '3:13 PM', floor: '3 time-off requests waiting', track: '' },
+  reporting: { time: '3:13 PM', floor: '', track: '' },
+};
 
 function setActiveNav(path) {
   navItems.forEach(el => {
@@ -20,6 +32,19 @@ function setTitle(label) {
   pageTitle.textContent = label;
   pageHeading.textContent = label;
   document.title = label + ' · Cadra';
+}
+function setMeta(viewName) {
+  const m = metaByView[viewName] || metaByView.dashboard;
+  if (pageTime) pageTime.textContent = m.time;
+  if (pageMeta) {
+    const floorEl = pageMeta.querySelector('.on-floor');
+    const trackEl = pageMeta.querySelector('.on-track');
+    const seps = pageMeta.querySelectorAll('.sep');
+    if (m.floor && floorEl) floorEl.textContent = m.floor;
+    if (m.track && trackEl) trackEl.textContent = m.track;
+    // Mostrar/ocultar separadores conforme conteúdo
+    seps.forEach(s => s.style.display = (m.floor || m.track) ? 'inline' : 'none');
+  }
 }
 
 function html(str) {
@@ -44,6 +69,7 @@ function navigate() {
   setActiveNav(path);
   const viewName = hash.split('/')[0];
   setTitle(viewName.charAt(0).toUpperCase() + viewName.slice(1));
+  setMeta(viewName);
   mount(viewName);
 }
 
