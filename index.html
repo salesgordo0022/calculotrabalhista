@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadra — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Pular para o conteúdo</a>
+
+  <!-- Top bar / dock -->
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="brand">
+        <a href="#/dashboard" class="logo" aria-label="Cadra — dashboard">
+          <span class="logo-mark">C</span>
+          <div class="logo-text">
+            <strong>Cadra</strong>
+            <span class="logo-sub">Larkspur Cycles</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="main-nav" aria-label="Principal">
+        <a href="#/dashboard" class="nav-item">Dashboard</a>
+        <a href="#/sales" class="nav-item">Sales</a>
+        <a href="#/manufacturing" class="nav-item">Manufacturing</a>
+        <a href="#/stock" class="nav-item">Stock</a>
+        <a href="#/accounting" class="nav-item">Accounting</a>
+        <a href="#/hr" class="nav-item">HR</a>
+        <a href="#/reporting" class="nav-item">Reporting</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <button class="icon-btn" aria-label="Notificações, 3 não lidas">
+          <span class="badge">3</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0L8 20.5V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.5z"/></svg>
+        </button>
+        <button class="icon-btn account" aria-label="Conta — Noor Haddad" aria-haspopup="true">
+          <span class="avatar">NH</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Quick actions bar -->
+  <div class="quickbar" role="navigation" aria-label="Ações rápidas">
+    <div class="quickbar-inner">
+      <button class="qb-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="2"/><path d="m21.71 17.07-4.28-4.28c-.39-.39-1.03-.39-1.41 0l-1.82 1.82c-.5.5-.5 1.31 0 1.8l3.64 3.64c.19.19.45.29.71.29s.52-.1.71-.29l4.28-4.28c.39-.39.39-1.03 0-1.42z"/></svg> Pesquisar (⌘K)</button>
+      <button class="qb-btn qb-create"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg> Criar novo</button>
+      <button class="qb-btn qb-theme" aria-label="Alternar tema" id="themeToggle">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.27-.02-.53-.06-.79l-2.19-2.19c-.3-.3-.82-.3-1.12 0l-2.18 2.18A8.45 8.45 0 0 1 3 12c0-4.71 3.81-8.55 8.5-8.95l2.18-2.18c.3-.3.3-.82 0-1.12l-2.19-2.19C16.03 3.02 12.77 3 12 3z"/></svg>
+      </button>
+      <a href="#/support" class="qb-link">Suporte</a>
+      <a href="#/settings" class="qb-link">Configurações</a>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <main id="main">
+    <!-- Breadcrumb + page header -->
+    <div class="page-header" id="pageHeader">
+      <div class="breadcrumbs">
+        <a href="#/dashboard">Larkspur</a>
+        <span class="sep">/</span>
+        <span class="current" id="pageTitle">Dashboard</span>
+      </div>
+      <h1 id="pageHeading">Dashboard</h1>
+    </div>
+
+    <div class="content" id="viewContainer">
+      <!-- Views are injected here by app.js -->
+    </div>
+  </main>
+
+  <footer class="buy">
+    <a href="https://codeandchill.store/checkout?item=cadra&ref=preview" target="_blank" rel="noopener" class="buy-btn">
+      Comprar este template →
+    </a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
